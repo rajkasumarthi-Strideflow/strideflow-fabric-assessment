@@ -3,29 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StrideFlow Fabric™ - Enterprise Agentic Readiness Assessment</title>
-  <meta name="description" content="Assess your enterprise architecture's readiness for autonomous agent operations across 5 critical dimensions.">
+  <title>StrideFlow™ - Enterprise Agentic Transformation</title>
+  <meta name="description" content="The diagnostic-first, architecture-led framework for enterprise agentic transformation across code, workflow, and architecture layers.">
   <style>
     :root {
       --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       --color-background-primary: #ffffff;
       --color-background-secondary: #f7f7f5;
       --color-background-tertiary: #f1efe8;
-      --color-background-info: #e6f1fb;
-      --color-background-danger: #fcebeb;
-      --color-background-success: #eaf3de;
-      --color-background-warning: #faeeda;
       --color-text-primary: #1a1a1a;
       --color-text-secondary: #666666;
       --color-text-tertiary: #999999;
-      --color-text-info: #185fa5;
-      --color-text-danger: #a32d2d;
-      --color-text-success: #3b6d11;
-      --color-text-warning: #854f0b;
       --color-border-tertiary: rgba(0,0,0,0.15);
       --color-border-secondary: rgba(0,0,0,0.3);
       --border-radius-md: 8px;
       --border-radius-lg: 12px;
+      --purple: #7C3AED;
+      --purple-light: #EEEDFE;
+      --cyan: #06B6D4;
+      --cyan-light: #CFFAFE;
     }
     
     @media (prefers-color-scheme: dark) {
@@ -33,19 +29,13 @@
         --color-background-primary: #2c2c2a;
         --color-background-secondary: #3a3a37;
         --color-background-tertiary: #1a1a18;
-        --color-background-info: #0c447c;
-        --color-background-danger: #791f1f;
-        --color-background-success: #27500a;
-        --color-background-warning: #633806;
         --color-text-primary: #f1efe8;
         --color-text-secondary: #b4b2a9;
         --color-text-tertiary: #888780;
-        --color-text-info: #85b7eb;
-        --color-text-danger: #f09595;
-        --color-text-success: #97c459;
-        --color-text-warning: #fac775;
         --color-border-tertiary: rgba(255,255,255,0.15);
         --color-border-secondary: rgba(255,255,255,0.3);
+        --purple-light: #3C3489;
+        --cyan-light: #164E63;
       }
     }
     
@@ -62,431 +52,486 @@
       line-height: 1.7;
     }
     
-    .container {
-      max-width: 800px;
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--cyan) 100%);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    
+    .hero-container {
+      max-width: 900px;
       margin: 0 auto;
-      padding: 2rem 1rem;
     }
     
-    .card {
-      background: var(--color-background-primary);
-      border-radius: var(--border-radius-lg);
-      border: 0.5px solid var(--color-border-tertiary);
-      padding: 2rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    h1 {
-      font-size: 28px;
+    .hero h1 {
+      font-size: 48px;
       font-weight: 500;
-      margin-bottom: 0.75rem;
-      color: var(--color-text-primary);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    .hero .tagline {
+      font-size: 24px;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      opacity: 0.95;
+    }
+    
+    .hero .description {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    
+    .cta-primary {
+      display: inline-block;
+      background: white;
+      color: var(--purple);
+      padding: 1rem 2.5rem;
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: var(--border-radius-md);
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    .cta-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    
+    .cta-primary:active {
+      transform: translateY(0);
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    
+    .section {
+      margin-bottom: 4rem;
     }
     
     h2 {
-      font-size: 20px;
+      font-size: 36px;
       font-weight: 500;
       margin-bottom: 1rem;
+      text-align: center;
       color: var(--color-text-primary);
     }
     
-    h3 {
-      font-size: 16px;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-      color: var(--color-text-primary);
-    }
-    
-    p {
-      font-size: 16px;
-      color: var(--color-text-secondary);
-      margin-bottom: 1rem;
-    }
-    
-    .brand {
-      color: #7C3AED;
-      font-weight: 500;
-    }
-    
-    .btn {
-      background: transparent;
-      border: 0.5px solid var(--color-border-secondary);
-      color: var(--color-text-primary);
-      padding: 0.75rem 1.5rem;
-      font-size: 15px;
-      font-weight: 500;
-      border-radius: var(--border-radius-md);
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: var(--font-sans);
-    }
-    
-    .btn:hover {
-      background: var(--color-background-secondary);
-    }
-    
-    .btn:active {
-      transform: scale(0.98);
-    }
-    
-    .btn-primary {
-      background: #7C3AED;
-      border-color: #7C3AED;
-      color: white;
-    }
-    
-    .btn-primary:hover {
-      background: #6D2FD4;
-      border-color: #6D2FD4;
-    }
-    
-    .progress {
-      height: 4px;
-      background: var(--color-background-secondary);
-      border-radius: 2px;
-      overflow: hidden;
-      margin-bottom: 2rem;
-    }
-    
-    .progress-bar {
-      height: 100%;
-      background: linear-gradient(90deg, #7C3AED 0%, #06B6D4 100%);
-      transition: width 0.3s ease;
-    }
-    
-    .question-container {
-      margin: 2rem 0;
-    }
-    
-    .question-text {
+    .section-intro {
       font-size: 18px;
+      color: var(--color-text-secondary);
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+    }
+    
+    /* Horizons Grid */
+    .horizons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .horizon-card {
+      background: var(--color-background-primary);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      border: 0.5px solid var(--color-border-tertiary);
+      transition: all 0.3s;
+    }
+    
+    .horizon-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      border-color: var(--purple);
+    }
+    
+    .horizon-number {
+      display: inline-block;
+      background: var(--purple-light);
+      color: var(--purple);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .horizon-card h3 {
+      font-size: 24px;
       font-weight: 500;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.5rem;
       color: var(--color-text-primary);
     }
     
-    .question-help {
+    .horizon-card .subtitle {
       font-size: 14px;
-      color: var(--color-text-secondary);
+      color: var(--color-text-tertiary);
       margin-bottom: 1rem;
-      padding: 1rem;
-      background: var(--color-background-secondary);
-      border-radius: var(--border-radius-md);
-      border-left: 3px solid #06B6D4;
-    }
-    
-    .options {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    
-    .option {
-      padding: 1rem 1.25rem;
-      border: 0.5px solid var(--color-border-tertiary);
-      border-radius: var(--border-radius-md);
-      cursor: pointer;
-      transition: all 0.2s;
-      font-size: 15px;
-    }
-    
-    .option:hover {
-      border-color: #7C3AED;
-      background: var(--color-background-secondary);
-    }
-    
-    .option.selected {
-      border-color: #7C3AED;
-      background: #EEEDFE;
-      font-weight: 500;
-    }
-    
-    @media (prefers-color-scheme: dark) {
-      .option.selected {
-        background: #3C3489;
-      }
-    }
-    
-    .slider-container {
-      margin: 2rem 0;
-    }
-    
-    .slider-labels {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-      color: var(--color-text-secondary);
-      margin-bottom: 0.5rem;
-    }
-    
-    input[type="range"] {
-      width: 100%;
-    }
-    
-    .slider-value {
-      text-align: center;
-      font-size: 20px;
-      font-weight: 500;
-      margin-top: 1rem;
-      color: #7C3AED;
-    }
-    
-    .checkbox-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    
-    .checkbox-option {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem;
-      border: 0.5px solid var(--color-border-tertiary);
-      border-radius: var(--border-radius-md);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    
-    .checkbox-option:hover {
-      background: var(--color-background-secondary);
-    }
-    
-    .checkbox-option input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-    }
-    
-    .score-card {
-      background: var(--color-background-secondary);
-      border-radius: var(--border-radius-md);
-      padding: 1.5rem;
-      text-align: center;
-      margin: 1rem 0;
-    }
-    
-    .score-value {
-      font-size: 48px;
-      font-weight: 500;
-      color: #7C3AED;
-      margin: 0.5rem 0;
-    }
-    
-    .score-label {
-      font-size: 13px;
-      color: var(--color-text-secondary);
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
     
-    .dimension-score {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
-      border-bottom: 0.5px solid var(--color-border-tertiary);
+    .horizon-card p {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      margin-bottom: 1rem;
     }
     
-    .dimension-score:last-child {
-      border-bottom: none;
+    .horizon-card ul {
+      list-style: none;
+      margin: 1rem 0;
     }
     
-    .dimension-name {
+    .horizon-card li {
       font-size: 15px;
-      font-weight: 500;
+      color: var(--color-text-secondary);
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
     }
     
-    .dimension-value {
+    .horizon-card li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--purple);
+      font-weight: bold;
+    }
+    
+    /* Methodology Section */
+    .methodology {
+      background: var(--color-background-primary);
+      border-radius: var(--border-radius-lg);
+      padding: 3rem;
+      border: 0.5px solid var(--color-border-tertiary);
+    }
+    
+    .methodology-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .methodology-item {
+      text-align: center;
+    }
+    
+    .methodology-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--purple-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 28px;
+    }
+    
+    .methodology-item h4 {
       font-size: 18px;
       font-weight: 500;
-      color: #7C3AED;
+      margin-bottom: 0.5rem;
+      color: var(--color-text-primary);
     }
     
-    .bar-container {
-      flex: 1;
-      margin: 0 1rem;
-      height: 8px;
-      background: var(--color-background-secondary);
-      border-radius: 4px;
-      overflow: hidden;
+    .methodology-item p {
+      font-size: 15px;
+      color: var(--color-text-secondary);
     }
     
-    .bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #7C3AED 0%, #06B6D4 100%);
-      transition: width 0.5s ease;
+    /* Assessment CTA Section */
+    .assessment-cta {
+      background: linear-gradient(135deg, var(--purple-light) 0%, var(--cyan-light) 100%);
+      border-radius: var(--border-radius-lg);
+      padding: 3rem;
+      text-align: center;
+      border: 2px solid var(--purple);
     }
     
-    .metric-grid {
+    .assessment-cta h2 {
+      color: var(--color-text-primary);
+      margin-bottom: 1rem;
+    }
+    
+    .assessment-cta p {
+      font-size: 18px;
+      color: var(--color-text-secondary);
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .assessment-metrics {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin: 1.5rem 0;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      max-width: 600px;
+      margin: 2rem auto;
     }
     
     .metric {
-      background: var(--color-background-secondary);
-      padding: 1rem;
-      border-radius: var(--border-radius-md);
+      text-align: center;
+    }
+    
+    .metric-value {
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--purple);
+      margin-bottom: 0.25rem;
     }
     
     .metric-label {
-      font-size: 13px;
+      font-size: 14px;
+      color: var(--color-text-secondary);
+    }
+    
+    /* Footer */
+    .footer {
+      background: var(--color-background-secondary);
+      padding: 3rem 2rem;
+      margin-top: 4rem;
+      border-top: 0.5px solid var(--color-border-tertiary);
+    }
+    
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .footer h3 {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: var(--color-text-primary);
+    }
+    
+    .footer p {
+      font-size: 16px;
       color: var(--color-text-secondary);
       margin-bottom: 0.5rem;
     }
     
-    .metric-value {
-      font-size: 24px;
+    .footer a {
+      color: var(--purple);
+      text-decoration: none;
+    }
+    
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    
+    .brand {
+      color: var(--purple);
       font-weight: 500;
     }
     
-    .badge {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: var(--border-radius-md);
-      font-size: 12px;
-      font-weight: 500;
-    }
-    
-    .badge-warning {
-      background: var(--color-background-warning);
-      color: var(--color-text-warning);
-    }
-    
-    .badge-danger {
-      background: var(--color-background-danger);
-      color: var(--color-text-danger);
-    }
-    
-    .badge-success {
-      background: var(--color-background-success);
-      color: var(--color-text-success);
-    }
-    
-    .badge-info {
-      background: var(--color-background-info);
-      color: var(--color-text-info);
-    }
-    
-    .blur-overlay {
-      position: relative;
-      filter: blur(5px);
-      user-select: none;
-      pointer-events: none;
-    }
-    
-    .blur-message {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--color-background-primary);
-      padding: 1.5rem 2rem;
-      border-radius: var(--border-radius-lg);
-      border: 0.5px solid var(--color-border-secondary);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
-      text-align: center;
-      filter: none;
-      pointer-events: auto;
-      z-index: 10;
-    }
-    
-    .premium-section {
-      background: #EEEDFE;
-      border-radius: var(--border-radius-md);
-      padding: 1.5rem;
-      margin: 2rem 0;
-      text-align: center;
-      border: 2px solid #7C3AED;
-    }
-    
-    @media (prefers-color-scheme: dark) {
-      .premium-section {
-        background: #26215C;
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 36px;
       }
-    }
-    
-    .loading {
-      text-align: center;
-      padding: 3rem;
-    }
-    
-    .spinner {
-      border: 3px solid var(--color-background-secondary);
-      border-top: 3px solid #7C3AED;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 1rem;
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    .recommendations {
-      margin: 2rem 0;
-    }
-    
-    .recommendation-item {
-      padding: 1rem;
-      margin: 0.75rem 0;
-      background: var(--color-background-secondary);
-      border-radius: var(--border-radius-md);
-      border-left: 3px solid #7C3AED;
-    }
-    
-    .recommendation-title {
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-    
-    .hidden {
-      display: none !important;
+      
+      .hero .tagline {
+        font-size: 20px;
+      }
+      
+      .hero .description {
+        font-size: 16px;
+      }
+      
+      h2 {
+        font-size: 28px;
+      }
+      
+      .container {
+        padding: 2rem 1rem;
+      }
+      
+      .horizons-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .methodology {
+        padding: 2rem 1.5rem;
+      }
+      
+      .assessment-cta {
+        padding: 2rem 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container" id="app">
-    <div id="landing" class="card">
-      <h1><span class="brand">StrideFlow Fabric™</span></h1>
-      <h2>Enterprise Agentic Readiness Assessment</h2>
-      <p>Assess your architecture's readiness for autonomous agent operations</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <h1><span class="brand">StrideFlow™</span></h1>
+      <p class="tagline">Enterprise Agentic Transformation Framework</p>
+      <p class="description">
+        The diagnostic-first, architecture-led methodology for organizations ready to deploy autonomous AI agents across code modernization, workflow automation, and platform architecture.
+      </p>
+      <a href="assessment.html" class="cta-primary">Assess Your Agentic Readiness →</a>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Three Horizons Section -->
+    <section class="section">
+      <h2>Three-Horizon Transformation</h2>
+      <p class="section-intro">
+        StrideFlow addresses enterprise agentic transformation across three critical layers, each with diagnostic assessment, prescriptive roadmap, and measurable outcomes.
+      </p>
       
-      <div style="margin: 2rem 0;">
-        <div class="metric-grid">
-          <div class="metric">
-            <div class="metric-label">Time to complete</div>
-            <div class="metric-value">20 minutes</div>
+      <div class="horizons-grid">
+        <!-- Horizon 1: Code -->
+        <div class="horizon-card">
+          <div class="horizon-number">1</div>
+          <h3>StrideFlow Code™</h3>
+          <div class="subtitle">Legacy Application Modernization</div>
+          <p>
+            Transform legacy codebases into maintainable, agent-ready systems using agentic IDEs and the Strangler Fig Extraction™ methodology.
+          </p>
+          <ul>
+            <li>Navigator-Agent Model™ collaboration</li>
+            <li>Cyclomatic complexity ≤15 target</li>
+            <li>Non-destructive refactoring</li>
+            <li>Measurable velocity recovery</li>
+          </ul>
+        </div>
+
+        <!-- Horizon 2: Flow -->
+        <div class="horizon-card">
+          <div class="horizon-number">2</div>
+          <h3>StrideFlow Flow™</h3>
+          <div class="subtitle">SDLC Workflow Optimization</div>
+          <p>
+            Eliminate multi-team handoffs and automate development workflows with agentic tech stack integration.
+          </p>
+          <ul>
+            <li>CI/CD pipeline automation</li>
+            <li>AI-powered testing & validation</li>
+            <li>AIOps observability</li>
+            <li>Cross-functional flow metrics</li>
+          </ul>
+        </div>
+
+        <!-- Horizon 3: Fabric -->
+        <div class="horizon-card">
+          <div class="horizon-number">3</div>
+          <h3>StrideFlow Fabric™</h3>
+          <div class="subtitle">Enterprise Architecture Evolution</div>
+          <p>
+            Assess and evolve your architecture for autonomous agent operations across five critical dimensions.
+          </p>
+          <ul>
+            <li>Agent Accessibility (API coverage)</li>
+            <li>Semantic Clarity (schemas & models)</li>
+            <li>Autonomy Support (workflow automation)</li>
+            <li>Event-Driven Architecture</li>
+            <li>Observability (structured telemetry)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="section">
+      <h2>Diagnostic-First Methodology</h2>
+      <p class="section-intro">
+        StrideFlow is the only comprehensive framework purpose-built for enterprise agentic transformation with diagnostic rigor and architecture-led execution.
+      </p>
+      
+      <div class="methodology">
+        <div class="methodology-grid">
+          <div class="methodology-item">
+            <div class="methodology-icon">📊</div>
+            <h4>Quantitative Assessment</h4>
+            <p>Multi-dimensional scoring across code, workflow, and architecture readiness with industry benchmarks.</p>
           </div>
-          <div class="metric">
-            <div class="metric-label">Assessment type</div>
-            <div class="metric-value">Comprehensive</div>
+          
+          <div class="methodology-item">
+            <div class="methodology-icon">🎯</div>
+            <h4>Prescriptive Roadmap</h4>
+            <p>Prioritized transformation initiatives with clear economic impact and ROI timelines.</p>
           </div>
-          <div class="metric">
-            <div class="metric-label">Output</div>
-            <div class="metric-value">Full scorecard</div>
+          
+          <div class="methodology-item">
+            <div class="methodology-icon">⚡</div>
+            <h4>Velocity Ceiling™ Analysis</h4>
+            <p>Identify where adding headcount yields diminishing returns due to structural complexity.</p>
+          </div>
+          
+          <div class="methodology-item">
+            <div class="methodology-icon">💰</div>
+            <h4>Economic Impact Model</h4>
+            <p>Calculate Structural Carrying Cost™ and capacity recovery potential with NPV projections.</p>
           </div>
         </div>
       </div>
-      
-      <p style="font-size: 14px; margin-top: 2rem;">This diagnostic evaluates your enterprise across five critical dimensions:</p>
-      <ul style="margin: 1rem 0 2rem 1.5rem; font-size: 15px; color: var(--color-text-secondary);">
-        <li style="margin: 0.5rem 0;">Agent Accessibility - Programmatic access to applications</li>
-        <li style="margin: 0.5rem 0;">Semantic Clarity - Machine-readable APIs and schemas</li>
-        <li style="margin: 0.5rem 0;">Autonomy Support - Unattended operation capabilities</li>
-        <li style="margin: 0.5rem 0;">Event-Driven Architecture - Asynchronous communication patterns</li>
-        <li style="margin: 0.5rem 0;">Observability - Structured telemetry and monitoring</li>
-      </ul>
-      
-      <button class="btn btn-primary" onclick="startAssessment()" style="width: 100%;">Begin Assessment</button>
-    </div>
+    </section>
+
+    <!-- Assessment CTA -->
+    <section class="section">
+      <div class="assessment-cta">
+        <h2>Start with Fabric Assessment</h2>
+        <p>
+          Take the comprehensive Horizon 3 (Fabric) diagnostic to understand your enterprise architecture's readiness for autonomous agent operations.
+        </p>
+        
+        <div class="assessment-metrics">
+          <div class="metric">
+            <div class="metric-value">20 min</div>
+            <div class="metric-label">Time to complete</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">25</div>
+            <div class="metric-label">Questions</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">5</div>
+            <div class="metric-label">Dimensions scored</div>
+          </div>
+        </div>
+        
+        <a href="assessment.html" class="cta-primary">Take Free Assessment →</a>
+      </div>
+    </section>
   </div>
 
-  <script src="assessment.js"></script>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <h3><span class="brand">StrideFlow™</span></h3>
+      <p>Enterprise Agentic Transformation Framework</p>
+      <p>Proprietary methodology developed by independent consultants specializing in AI-enabled enterprise architecture.</p>
+      <p style="margin-top: 1.5rem;">
+        Contact: <a href="mailto:contact@strideflow.com">contact@strideflow.com</a>
+      </p>
+      <p style="font-size: 14px; color: var(--color-text-tertiary); margin-top: 2rem;">
+        © 2024-2026 StrideFlow. All rights reserved. StrideFlow™, StrideFlow Code™, StrideFlow Flow™, StrideFlow Fabric™, Navigator-Agent Model™, Strangler Fig Extraction™, Velocity Ceiling™, and Structural Carrying Cost™ are trademarks.
+      </p>
+    </div>
+  </footer>
 </body>
 </html>
